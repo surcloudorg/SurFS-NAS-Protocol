@@ -27,12 +27,10 @@ package org.alfresco.jlan.app;
 import com.surfs.nas.LogInitializer;
 import com.autumn.core.log.LogFactory;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.PrintStream;
 import java.lang.reflect.Constructor;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
-import java.util.Properties;
 
 import org.alfresco.jlan.debug.Debug;
 import org.alfresco.jlan.debug.DebugConfigSection;
