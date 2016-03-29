@@ -20,8 +20,6 @@
 package com.surfs.nas.mnt;
 
 import com.surfs.nas.client.SurfsDiskSize;
-import com.autumn.core.log.LogFactory;
-import com.autumn.core.log.Logger;
 import com.surfs.nas.StorageConfig;
 import com.surfs.nas.StorageSources;
 import com.surfs.nas.client.SurFile;

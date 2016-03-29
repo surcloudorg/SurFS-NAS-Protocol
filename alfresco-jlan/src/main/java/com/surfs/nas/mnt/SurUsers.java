@@ -19,11 +19,11 @@
 
 package com.surfs.nas.mnt;
 
-import com.autumn.core.log.LogFactory;
-import com.autumn.core.log.Logger;
 import com.surfs.nas.StoragePool;
 import com.surfs.nas.StorageSources;
 import com.surfs.nas.error.PoolNotFoundException;
+import com.surfs.nas.log.LogFactory;
+import com.surfs.nas.log.Logger;
 import java.io.IOException;
 import org.alfresco.config.ConfigElement;
 import org.alfresco.jlan.server.auth.UserAccount;

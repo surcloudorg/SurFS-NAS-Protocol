@@ -19,8 +19,9 @@
 
 package com.surfs.nas.mnt;
 
-import com.autumn.core.log.LogFactory;
-import com.autumn.core.log.Logger;
+import com.surfs.nas.log.LogFactory;
+import com.surfs.nas.log.Logger;
+ 
 import org.alfresco.jlan.server.SrvSession;
 import org.alfresco.jlan.server.auth.ClientInfo;
 import org.alfresco.jlan.server.auth.EnterpriseCifsAuthenticator;

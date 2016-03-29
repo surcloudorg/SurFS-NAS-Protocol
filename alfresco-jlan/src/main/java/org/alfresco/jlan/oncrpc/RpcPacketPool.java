@@ -37,8 +37,8 @@
  */
 package org.alfresco.jlan.oncrpc;
 
-import com.autumn.core.log.LogFactory;
-import com.autumn.core.log.Logger;
+import com.surfs.nas.log.LogFactory;
+import com.surfs.nas.log.Logger;
 import java.util.concurrent.LinkedTransferQueue;
 import java.util.concurrent.atomic.AtomicInteger;
 

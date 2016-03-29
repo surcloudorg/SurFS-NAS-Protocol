@@ -38,7 +38,6 @@
  */
 package org.alfresco.jlan.oncrpc;
 
-import com.autumn.core.log.LogFactory;
 import org.alfresco.jlan.debug.Debug;
 
 /**
@@ -195,7 +194,6 @@ public class RpcRequestThreadPool {
         for (int i = headSize; i < m_workers.length; i++) {
             m_workers[i] = new ThreadWorker(threadName + (i + 1), i, true);
         }
-        LogFactory.info("启动NFS处理线程:" + m_workers.length, RpcRequestThreadPool.class);
     }
 
     /**

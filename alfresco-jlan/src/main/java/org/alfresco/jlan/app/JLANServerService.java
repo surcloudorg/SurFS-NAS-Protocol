@@ -24,8 +24,10 @@
  */
 package org.alfresco.jlan.app;
 
-import com.surfs.nas.LogInitializer;
-import com.autumn.core.log.LogFactory;
+import com.surfs.nas.log.LogFactory;
+import com.surfs.nas.log.LogInitializer;
+import com.surfs.nas.transport.ThreadPool;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.PrintStream;
@@ -219,7 +221,7 @@ public class JLANServerService implements WrapperListener, Runnable {
 
         //	Set the shutdown flag
         m_shutdown = true;
-        com.autumn.core.ThreadPools.stopThread(mornitor);
+        ThreadPool.stopThread(mornitor);
         //  Get the debug configuration
         DebugConfigSection dbgConfig = (DebugConfigSection) m_config.getConfigSection(DebugConfigSection.SectionName);
 

@@ -37,8 +37,9 @@
  */
 package org.alfresco.jlan.oncrpc.nfs;
 
-import com.autumn.core.log.LogFactory;
-import com.autumn.core.log.Logger;
+ 
+import com.surfs.nas.log.LogFactory;
+import com.surfs.nas.log.Logger;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;

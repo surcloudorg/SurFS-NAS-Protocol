@@ -24,8 +24,9 @@
  */
 package org.alfresco.jlan.app;
 
-import com.surfs.nas.LogInitializer;
-import com.autumn.core.log.LogFactory;
+import com.surfs.nas.log.LogFactory;
+import com.surfs.nas.log.LogInitializer;
+ 
 import java.io.File;
 import java.io.PrintStream;
 import java.lang.reflect.Constructor;

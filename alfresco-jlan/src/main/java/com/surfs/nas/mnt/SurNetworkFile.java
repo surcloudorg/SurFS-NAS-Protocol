@@ -19,8 +19,6 @@
 
 package com.surfs.nas.mnt;
 
-import com.autumn.core.log.LogFactory;
-import com.autumn.core.log.Logger;
 import com.surfs.nas.client.NasRandomAccessor;
 import com.surfs.nas.client.SurFile;
 import java.io.IOException;
