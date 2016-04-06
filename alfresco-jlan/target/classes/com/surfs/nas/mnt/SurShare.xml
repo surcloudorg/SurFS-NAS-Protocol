@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<diskshare name="test" comment="test">
+    <driver>
+        <class>com.surfs.nas.mnt.SurNasDriver</class>
+    </driver>
+</diskshare>
