@@ -37,7 +37,7 @@
  */
 package org.alfresco.jlan.server;
 
-import com.autumn.util.BufferPool;
+import com.surfs.nas.util.BufferPool;
 import java.io.IOException;
 import java.net.Socket;
 import java.net.SocketTimeoutException;
@@ -68,7 +68,7 @@ public abstract class SocketPacketHandler implements PacketHandlerInterface {
         m_socket.setSoTimeout(10000);
         m_socket.setSoLinger(true, 5);
         //sessSock.setPerformancePreferences(0, 0, 0);
-        m_socket.setTrafficClass(0x02 | 0x08);//低成本： 0x02 ,高可靠性： 0x04 ,最高吞吐量： 0x08 ,最小延迟： 0x10
+        m_socket.setTrafficClass(0x02 | 0x08);
     }
 
     /**
@@ -83,7 +83,7 @@ public abstract class SocketPacketHandler implements PacketHandlerInterface {
         channel = m_socket.getChannel();
         channel.configureBlocking(true);
         receiver = new Receiver();
-        com.autumn.core.ThreadPools.startThread(receiver);
+        com.surfs.nas.transport.ThreadPool.pool.execute(receiver);
     }
 
     private class Receiver extends Thread {
@@ -104,9 +104,9 @@ public abstract class SocketPacketHandler implements PacketHandlerInterface {
                         buf.limit(count);
                         receiveQueue.put(buf);
                     } else if (count == 0) {
-                        throw new SocketTimeoutException("没收到数据!");
+                        throw new SocketTimeoutException("");
                     } else {
-                        throw new IOException("服务器关闭!");
+                        throw new IOException("");
                     }
                 } catch (InterruptedException e) {
                     break;
@@ -124,7 +124,7 @@ public abstract class SocketPacketHandler implements PacketHandlerInterface {
                 }
             }
             closePacketHandler();
-            while (curReadBuffer != null) {//一定要释放内存
+            while (curReadBuffer != null) {
                 BufferPool.freeByteBuffer(curReadBuffer);
                 curReadBuffer = receiveQueue.poll();
             }
@@ -140,7 +140,6 @@ public abstract class SocketPacketHandler implements PacketHandlerInterface {
     public abstract String getProtocolName();
 
     /**
-     * 取下一个数据包
      *
      * @throws IOException
      */

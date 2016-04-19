@@ -99,7 +99,6 @@ public class SurNetworkFile extends NetworkFile {
     }
 
     /**
-     * 关闭
      *
      * @throws IOException
      */

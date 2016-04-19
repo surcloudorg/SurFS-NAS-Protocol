@@ -83,7 +83,6 @@ public class SurShareMapper implements ShareMapper, ConfigurationListener {
     }
 
     /**
-     * 初始化共享
      *
      * @param shares
      */
@@ -100,7 +99,6 @@ public class SurShareMapper implements ShareMapper, ConfigurationListener {
     }
 
     /**
-     * 生成xml
      *
      * @param name
      * @return
@@ -129,7 +127,6 @@ public class SurShareMapper implements ShareMapper, ConfigurationListener {
         if (m_filesysConfig == null) {
             return null;
         }
-        //清理删除的共享
         SharedDeviceList shrList = new SharedDeviceList(m_filesysConfig.getShares());
         Enumeration<SharedDevice> list = shrList.enumerateShares();
         while (list.hasMoreElements()) {
@@ -139,7 +136,7 @@ public class SurShareMapper implements ShareMapper, ConfigurationListener {
                 DiskDeviceContext dc = dsd.getDiskContext();
                 if (dc instanceof SurDeviceContext) {
                     SurDeviceContext sdc = (SurDeviceContext) dc;
-                    if (!sdc.isUseable()) {//移除
+                    if (!sdc.isUseable()) {
                         m_filesysConfig.getShares().deleteShare(sd.getName());
                         sdc.CloseContext();
                        
@@ -167,10 +164,10 @@ public class SurShareMapper implements ShareMapper, ConfigurationListener {
         } else {
             String path = SurFile.checkPath(name).toLowerCase();
             share = m_filesysConfig.getShares().findShare(path.substring(1), typ, false);
-            if (share == null) { //创建
-                try {//查找数据库
+            if (share == null) { 
+                try {
                     pool.getDatasource().getNasMetaAccessor().getQuata(path);
-                } catch (Exception r) {//无此挂载点
+                } catch (Exception r) {
                   
                     return null;
                 }

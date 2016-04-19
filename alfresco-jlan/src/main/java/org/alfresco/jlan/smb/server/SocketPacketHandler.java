@@ -16,29 +16,29 @@
  * You should have received a copy of the GNU Lesser General Public License
  * along with Alfresco. If not, see <http://www.gnu.org/licenses/>.
  */
-/***************************************************************************
+/**
+ * *************************************************************************
  *
  * Copyright (C) 2016 SurCloud.
  *
  * This file is part of JLAN for SurFS
  *
- * JLAN for SurFS is free software: you can redistribute it and/or modify
- * it under the terms of the GNU Lesser General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
+ * JLAN for SurFS is free software: you can redistribute it and/or modify it
+ * under the terms of the GNU Lesser General Public License as published by the
+ * Free Software Foundation, either version 3 of the License, or (at your
+ * option) any later version.
  *
- * JLAN for SurFS is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU Lesser General Public License for more details.
+ * JLAN for SurFS is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
  *
  * You should have received a copy of the GNU Lesser General Public License
  * along with JLAN for SurFS. If not, see <http://www.gnu.org/licenses/>.
  */
-
 package org.alfresco.jlan.smb.server;
 
-import com.autumn.util.BufferPool;
+import com.surfs.nas.util.BufferPool;
 import java.io.IOException;
 import java.net.Socket;
 import java.net.SocketTimeoutException;
@@ -72,7 +72,7 @@ public abstract class SocketPacketHandler extends PacketHandler {
         m_socket.setSoTimeout(10000);
         m_socket.setSoLinger(true, 5);
         //sessSock.setPerformancePreferences(0, 0, 0);
-        m_socket.setTrafficClass(0x02 | 0x08);//低成本： 0x02 ,高可靠性： 0x04 ,最高吞吐量： 0x08 ,最小延迟： 0x10
+        m_socket.setTrafficClass(0x02 | 0x08);
     }
 
     /**
@@ -92,7 +92,7 @@ public abstract class SocketPacketHandler extends PacketHandler {
         channel.configureBlocking(true);
         setRemoteAddress(m_socket.getInetAddress());
         receiver = new Receiver();
-        com.autumn.core.ThreadPools.startThread(receiver);
+        com.surfs.nas.transport.ThreadPool.pool.execute(receiver);
     }
 
     private class Receiver extends Thread {
@@ -113,9 +113,9 @@ public abstract class SocketPacketHandler extends PacketHandler {
                         buf.limit(count);
                         receiveQueue.put(buf);
                     } else if (count == 0) {
-                        throw new SocketTimeoutException("没收到数据!");
+                        throw new SocketTimeoutException("");
                     } else {
-                        throw new IOException("服务器关闭!");
+                        throw new IOException("");
                     }
                 } catch (InterruptedException e) {
                     break;
@@ -133,7 +133,7 @@ public abstract class SocketPacketHandler extends PacketHandler {
                 }
             }
             closeHandler();
-            while (curReadBuffer != null) {//一定要释放内存
+            while (curReadBuffer != null) {
                 BufferPool.freeByteBuffer(curReadBuffer);
                 curReadBuffer = receiveQueue.poll();
             }
@@ -141,7 +141,6 @@ public abstract class SocketPacketHandler extends PacketHandler {
     }
 
     /**
-     * 取下一个数据包
      *
      * @throws IOException
      */

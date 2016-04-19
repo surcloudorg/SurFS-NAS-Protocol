@@ -75,7 +75,7 @@ public class SurNasDriver implements DiskInterface, DiskSizeInterface {
                         throw e instanceof IOException ? (IOException) e : new IOException(e);
                     }
                     Thread.sleep(sf.getStoragePool().getClientSourceMgr().getGlobleProperties().getReadTimeout() * 1000);
-                } catch (InterruptedException ex) {//退出
+                } catch (InterruptedException ex) {
                     
                     throw e instanceof IOException ? (IOException) e : new IOException(e);
                 }
@@ -105,7 +105,7 @@ public class SurNasDriver implements DiskInterface, DiskSizeInterface {
                         throw e instanceof IOException ? (IOException) e : new IOException(e);
                     }
                     Thread.sleep(delDir.getStoragePool().getClientSourceMgr().getGlobleProperties().getReadTimeout() * 1000);
-                } catch (InterruptedException ex) {//退出
+                } catch (InterruptedException ex) {
                    
                     throw e instanceof IOException ? (IOException) e : new IOException(e);
                 }
@@ -131,7 +131,7 @@ public class SurNasDriver implements DiskInterface, DiskSizeInterface {
                         throw e instanceof IOException ? (IOException) e : new IOException(e);
                     }
                     Thread.sleep(delFile.getStoragePool().getClientSourceMgr().getGlobleProperties().getReadTimeout() * 1000);
-                } catch (InterruptedException ex) {//退出
+                } catch (InterruptedException ex) {
                     
                     throw e instanceof IOException ? (IOException) e : new IOException(e);
                 }
@@ -233,7 +233,7 @@ public class SurNasDriver implements DiskInterface, DiskSizeInterface {
                         }
                         Thread.sleep(sf.getStoragePool().getClientSourceMgr().getGlobleProperties().getCheckSpaceInterval() * 1000);
 
-                    } catch (InterruptedException ex) {//退出
+                    } catch (InterruptedException ex) {
                   
                         throw e instanceof IOException ? (IOException) e : new IOException(e);
                     }
@@ -329,7 +329,7 @@ public class SurNasDriver implements DiskInterface, DiskSizeInterface {
                         throw e instanceof IOException ? (IOException) e : new IOException(e);
                     }
                     Thread.sleep(oldFile.getStoragePool().getClientSourceMgr().getGlobleProperties().getReadTimeout() * 1000);
-                } catch (InterruptedException ex) {//退出
+                } catch (InterruptedException ex) {
                   
                     throw e instanceof IOException ? (IOException) e : new IOException(e);
                 }
@@ -373,8 +373,8 @@ public class SurNasDriver implements DiskInterface, DiskSizeInterface {
                         return null;
                     }
                     Thread.sleep(StorageSources.getStoragePool(poolname).getClientSourceMgr().getGlobleProperties().getReadTimeout() * 1000);
-                } catch (IOException ex) {//不可能
-                } catch (InterruptedException ex) {//退出
+                } catch (IOException ex) {
+                } catch (InterruptedException ex) {
                     
                     return null;
                 }

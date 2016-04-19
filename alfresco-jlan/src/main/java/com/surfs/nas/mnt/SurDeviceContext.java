@@ -45,9 +45,6 @@ public class SurDeviceContext extends DiskDeviceContext {
         return surfsDiskSize;
     }
 
-    /**
-     * 运行
-     */
     public void open() {
         surDevicePermission.start();
         surfsDiskSize.start();
