@@ -7,7 +7,6 @@
     <packaging>jar</packaging>
 
     <build>
-        <!-- 非eclipse ide 忽略<pluginManagement>下org.eclipse.m2e插件 -->
         <pluginManagement>
             <plugins>
                 <plugin>
@@ -117,8 +116,7 @@
                 <filtering>false</filtering>
             </resource>
         </resources>
-    </build>       
-    
+    </build>
     <dependencies>
         <dependency>
             <groupId>com.surfs</groupId>

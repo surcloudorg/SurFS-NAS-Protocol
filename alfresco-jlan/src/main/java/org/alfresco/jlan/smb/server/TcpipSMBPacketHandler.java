@@ -22,44 +22,17 @@
  * the FLOSS exception, and it is also available here: 
  * http://www.alfresco.com/legal/licensing"
  */
-package org.alfresco.jlan.smb.server;/*
- * Copyright (C) 2016 Alfresco Software Limited.
- *
- * This file is part of Alfresco
- *
- * Alfresco is free software: you can redistribute it and/or modify
- * it under the terms of the GNU Lesser General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * Alfresco is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU Lesser General Public License for more details.
- *
- * You should have received a copy of the GNU Lesser General Public License
- * along with Alfresco. If not, see <http://www.gnu.org/licenses/>.
- */
 /***************************************************************************
  *
  * Copyright (C) 2016 SurCloud.
  *
- * This file is part of JLAN for SurFS
+ * This file was modified by SurCloud and is part of JLAN for SurFS, you
+ * can redistribute and/or modify it under the same license terms as above.
  *
- * JLAN for SurFS is free software: you can redistribute it and/or modify
- * it under the terms of the GNU Lesser General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * JLAN for SurFS is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU Lesser General Public License for more details.
- *
- * You should have received a copy of the GNU Lesser General Public License
- * along with JLAN for SurFS. If not, see <http://www.gnu.org/licenses/>.
+ * JLAN for SurFS is likewise distributed WITHOUT ANY WARRANTY.
  */
-
+package org.alfresco.jlan.smb.server;
+  
 import java.io.IOException;
 import java.net.Socket;
 import java.net.SocketTimeoutException;
